@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawlab.API", "Crawlab.API\Crawlab.API.csproj", "{9BEDF774-0207-4382-9C28-B57065914AB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawlab.Model", "Crawlab.Model\Crawlab.Model.csproj", "{F86A8ED3-A405-4661-ACF6-C0BB45E84980}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawlab.DB", "Crawlab.DB\Crawlab.DB.csproj", "{5C7A30B9-9C8B-4BA6-B24E-58B627EFFA97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawlab.API.Test", "Crawlab.API.Test\Crawlab.API.Test.csproj", "{C69AB4BB-1F2D-4045-9907-A31C8C0A119F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawlab.Constant", "Crawlab.Constant\Crawlab.Constant.csproj", "{5F11B2DA-A643-4219-9EDE-206264594016}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9BEDF774-0207-4382-9C28-B57065914AB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BEDF774-0207-4382-9C28-B57065914AB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BEDF774-0207-4382-9C28-B57065914AB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BEDF774-0207-4382-9C28-B57065914AB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F86A8ED3-A405-4661-ACF6-C0BB45E84980}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F86A8ED3-A405-4661-ACF6-C0BB45E84980}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F86A8ED3-A405-4661-ACF6-C0BB45E84980}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F86A8ED3-A405-4661-ACF6-C0BB45E84980}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C7A30B9-9C8B-4BA6-B24E-58B627EFFA97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C7A30B9-9C8B-4BA6-B24E-58B627EFFA97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C7A30B9-9C8B-4BA6-B24E-58B627EFFA97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C7A30B9-9C8B-4BA6-B24E-58B627EFFA97}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C69AB4BB-1F2D-4045-9907-A31C8C0A119F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C69AB4BB-1F2D-4045-9907-A31C8C0A119F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C69AB4BB-1F2D-4045-9907-A31C8C0A119F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C69AB4BB-1F2D-4045-9907-A31C8C0A119F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F11B2DA-A643-4219-9EDE-206264594016}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F11B2DA-A643-4219-9EDE-206264594016}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F11B2DA-A643-4219-9EDE-206264594016}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F11B2DA-A643-4219-9EDE-206264594016}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
