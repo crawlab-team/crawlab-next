@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using Crawlab.DB;
-using Crawlab.Model;
 using Task = Crawlab.Model.Models.Task;
 
 namespace Crawlab.API.Controllers;

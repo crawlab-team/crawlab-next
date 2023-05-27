@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Crawlab.DB;
-using Crawlab.Model;
 using Crawlab.Model.Base;
 
 namespace Crawlab.API.Controllers;
