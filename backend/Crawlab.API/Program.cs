@@ -1,14 +1,22 @@
 using Crawlab.DB;
-using Microsoft.EntityFrameworkCore;
+using Crawlab.RPC;
 
+// Create the builder with which we will build the app
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+// Add swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+// Add database context
 builder.Services.AddDbContext<CrawlabDbContext>();
+
+// Add SignalR
+builder.Services.AddSignalR();
+// .AddJsonProtocol(options => { options.PayloadSerializerOptions.PropertyNamingPolicy = null; });
 
 var app = builder.Build();
 
@@ -19,10 +27,17 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+// HTTPS
 app.UseHttpsRedirection();
 
+// Authentication
 app.UseAuthorization();
 
+// Controllers
 app.MapControllers();
 
+// SignalR
+app.MapHub<RpcServer>("/rpc");
+
+// Run
 app.Run();

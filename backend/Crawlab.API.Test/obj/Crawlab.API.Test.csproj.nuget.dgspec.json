@@ -119,6 +119,9 @@
               },
               "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.Model/Crawlab.Model.csproj": {
                 "projectPath": "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.Model/Crawlab.Model.csproj"
+              },
+              "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.RPC/Crawlab.RPC.csproj": {
+                "projectPath": "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.RPC/Crawlab.RPC.csproj"
               }
             }
           }
@@ -150,6 +153,10 @@
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql.Design": {
+              "target": "Package",
+              "version": "[1.1.2, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -358,6 +365,76 @@
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[2.19.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.RPC/Crawlab.RPC.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.RPC/Crawlab.RPC.csproj",
+        "projectName": "Crawlab.RPC",
+        "projectPath": "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.RPC/Crawlab.RPC.csproj",
+        "packagesPath": "/Users/marvzhang/.nuget/packages/",
+        "outputPath": "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.RPC/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/marvzhang/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.DB/Crawlab.DB.csproj": {
+                "projectPath": "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.DB/Crawlab.DB.csproj"
+              },
+              "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.Model/Crawlab.Model.csproj": {
+                "projectPath": "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.Model/Crawlab.Model.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.SignalR": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Client": {
+              "target": "Package",
+              "version": "[7.0.5, )"
             }
           },
           "imports": [

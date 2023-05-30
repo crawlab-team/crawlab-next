@@ -21,6 +21,7 @@
     <ItemGroup>
       <ProjectReference Include="..\Crawlab.DB\Crawlab.DB.csproj" />
       <ProjectReference Include="..\Crawlab.Model\Crawlab.Model.csproj" />
+      <ProjectReference Include="..\Crawlab.RPC\Crawlab.RPC.csproj" />
     </ItemGroup>
 
 </Project>

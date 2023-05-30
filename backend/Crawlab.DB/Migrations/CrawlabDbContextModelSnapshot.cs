@@ -25,6 +25,9 @@ namespace Crawlab.DB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<int>("ActiveRunners")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
@@ -34,6 +37,13 @@ namespace Crawlab.DB.Migrations
 
                     b.Property<bool>("Enabled")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("Key")
+                        .IsRequired()
+                        .HasColumnType("varchar(255)");
+
+                    b.Property<DateTime?>("LastHeartbeat")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int>("MaxRunners")
                         .HasColumnType("int");
@@ -50,6 +60,9 @@ namespace Crawlab.DB.Migrations
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Key")
+                        .IsUnique();
 
                     b.HasIndex("Status");
 
@@ -234,18 +247,10 @@ namespace Crawlab.DB.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<string>("NodeId")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("NodeId1")
+                    b.Property<int?>("NodeId")
                         .HasColumnType("int");
 
-                    b.Property<string>("SpiderId")
-                        .IsRequired()
-                        .HasColumnType("longtext");
-
-                    b.Property<int?>("SpiderId1")
+                    b.Property<int?>("SpiderId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("UpdatedAt")
@@ -253,9 +258,9 @@ namespace Crawlab.DB.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("NodeId1");
+                    b.HasIndex("NodeId");
 
-                    b.HasIndex("SpiderId1");
+                    b.HasIndex("SpiderId");
 
                     b.ToTable("SpiderNodes");
                 });
@@ -303,11 +308,11 @@ namespace Crawlab.DB.Migrations
                 {
                     b.HasOne("Crawlab.Model.Models.Node", "Node")
                         .WithMany()
-                        .HasForeignKey("NodeId1");
+                        .HasForeignKey("NodeId");
 
                     b.HasOne("Crawlab.Model.Models.Spider", "Spider")
                         .WithMany("SpiderNodes")
-                        .HasForeignKey("SpiderId1");
+                        .HasForeignKey("SpiderId");
 
                     b.Navigation("Node");
 

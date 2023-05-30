@@ -21,10 +21,14 @@ namespace Crawlab.DB.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    Key = table.Column<string>(type: "varchar(255)", nullable: false)
+                        .Annotation("MySql:CharSet", "utf8mb4"),
                     Status = table.Column<string>(type: "varchar(255)", nullable: false)
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     Enabled = table.Column<bool>(type: "tinyint(1)", nullable: false),
+                    ActiveRunners = table.Column<int>(type: "int", nullable: false),
                     MaxRunners = table.Column<int>(type: "int", nullable: false),
+                    LastHeartbeat = table.Column<DateTime>(type: "datetime(6)", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Name = table.Column<string>(type: "longtext", nullable: false)
@@ -124,12 +128,8 @@ namespace Crawlab.DB.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    SpiderId = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    NodeId = table.Column<string>(type: "longtext", nullable: false)
-                        .Annotation("MySql:CharSet", "utf8mb4"),
-                    SpiderId1 = table.Column<int>(type: "int", nullable: true),
-                    NodeId1 = table.Column<int>(type: "int", nullable: true),
+                    SpiderId = table.Column<int>(type: "int", nullable: true),
+                    NodeId = table.Column<int>(type: "int", nullable: true),
                     CreatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     UpdatedAt = table.Column<DateTime>(type: "datetime(6)", nullable: false),
                     Name = table.Column<string>(type: "longtext", nullable: false)
@@ -141,13 +141,13 @@ namespace Crawlab.DB.Migrations
                 {
                     table.PrimaryKey("PK_SpiderNodes", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_SpiderNodes_Nodes_NodeId1",
-                        column: x => x.NodeId1,
+                        name: "FK_SpiderNodes_Nodes_NodeId",
+                        column: x => x.NodeId,
                         principalTable: "Nodes",
                         principalColumn: "Id");
                     table.ForeignKey(
-                        name: "FK_SpiderNodes_Spiders_SpiderId1",
-                        column: x => x.SpiderId1,
+                        name: "FK_SpiderNodes_Spiders_SpiderId",
+                        column: x => x.SpiderId,
                         principalTable: "Spiders",
                         principalColumn: "Id");
                 })
@@ -197,6 +197,12 @@ namespace Crawlab.DB.Migrations
                 .Annotation("MySql:CharSet", "utf8mb4");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Nodes_Key",
+                table: "Nodes",
+                column: "Key",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Nodes_Status",
                 table: "Nodes",
                 column: "Status");
@@ -207,14 +213,14 @@ namespace Crawlab.DB.Migrations
                 column: "SpiderId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SpiderNodes_NodeId1",
+                name: "IX_SpiderNodes_NodeId",
                 table: "SpiderNodes",
-                column: "NodeId1");
+                column: "NodeId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_SpiderNodes_SpiderId1",
+                name: "IX_SpiderNodes_SpiderId",
                 table: "SpiderNodes",
-                column: "SpiderId1");
+                column: "SpiderId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Spiders_SpiderId",

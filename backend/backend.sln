@@ -13,6 +13,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawlab.API.Test", "Crawlab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawlab.Constant", "Crawlab.Constant\Crawlab.Constant.csproj", "{5F11B2DA-A643-4219-9EDE-206264594016}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawlab.RPC", "Crawlab.RPC\Crawlab.RPC.csproj", "{512EE83E-FDA3-4CEE-A4A6-6FECE3764F75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawlab.RPC.Test", "Crawlab.RPC.Test\Crawlab.RPC.Test.csproj", "{D8D5907E-DA52-4264-94FF-166B0B412F24}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawlab.Worker", "Crawlab.Worker\Crawlab.Worker.csproj", "{AF912ADC-DA1F-49AA-95D3-986ACC0F517A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +48,17 @@ Global
 		{5F11B2DA-A643-4219-9EDE-206264594016}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F11B2DA-A643-4219-9EDE-206264594016}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5F11B2DA-A643-4219-9EDE-206264594016}.Release|Any CPU.Build.0 = Release|Any CPU
+		{512EE83E-FDA3-4CEE-A4A6-6FECE3764F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{512EE83E-FDA3-4CEE-A4A6-6FECE3764F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{512EE83E-FDA3-4CEE-A4A6-6FECE3764F75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{512EE83E-FDA3-4CEE-A4A6-6FECE3764F75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8D5907E-DA52-4264-94FF-166B0B412F24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8D5907E-DA52-4264-94FF-166B0B412F24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8D5907E-DA52-4264-94FF-166B0B412F24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8D5907E-DA52-4264-94FF-166B0B412F24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF912ADC-DA1F-49AA-95D3-986ACC0F517A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF912ADC-DA1F-49AA-95D3-986ACC0F517A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF912ADC-DA1F-49AA-95D3-986ACC0F517A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF912ADC-DA1F-49AA-95D3-986ACC0F517A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
