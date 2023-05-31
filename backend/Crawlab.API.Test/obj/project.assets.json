@@ -2389,6 +2389,7 @@
           "Crawlab.DB": "1.0.0",
           "Crawlab.Model": "1.0.0",
           "Crawlab.RPC": "1.0.0",
+          "Crawlab.Service": "1.0.0",
           "Microsoft.AspNetCore.OpenApi": "7.0.5",
           "Microsoft.Data.SqlClient": "5.1.1",
           "Pomelo.EntityFrameworkCore.MySql": "7.0.0",
@@ -2461,6 +2462,19 @@
         },
         "runtime": {
           "bin/placeholder/Crawlab.RPC.dll": {}
+        }
+      },
+      "Crawlab.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v7.0",
+        "dependencies": {
+          "Crawlab.DB": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Crawlab.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Crawlab.Service.dll": {}
         }
       }
     }
@@ -6358,6 +6372,11 @@
       "type": "project",
       "path": "../Crawlab.RPC/Crawlab.RPC.csproj",
       "msbuildProject": "../Crawlab.RPC/Crawlab.RPC.csproj"
+    },
+    "Crawlab.Service/1.0.0": {
+      "type": "project",
+      "path": "../Crawlab.Service/Crawlab.Service.csproj",
+      "msbuildProject": "../Crawlab.Service/Crawlab.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {

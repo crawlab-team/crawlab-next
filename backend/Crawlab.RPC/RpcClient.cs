@@ -1,40 +1,58 @@
 using Crawlab.Model.Models;
 using Microsoft.AspNetCore.SignalR.Client;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Logging.Abstractions;
 using Task = System.Threading.Tasks.Task;
 
 namespace Crawlab.RPC;
 
 public class RpcClient : IRpcClient
 {
-    private readonly ILogger<RpcClient> _logger = new NullLogger<RpcClient>();
-    private readonly HubConnection _connection;
+    private readonly ILogger<RpcClient> _logger;
+    public readonly HubConnection Connection;
 
-    public RpcClient()
+    public RpcClient(ILogger<RpcClient> logger)
     {
-        _connection = new HubConnectionBuilder()
+        _logger = logger;
+        Connection = new HubConnectionBuilder()
             .WithUrl("http://localhost:5129/rpc")
             .Build();
 
-        _connection.Closed += async (error) =>
+        Connection.Closed += async (error) =>
         {
             await Task.Delay(new Random().Next(0, 5) * 1000);
-            await _connection.StartAsync();
+            await Connection.StartAsync();
         };
 
-        _connection.On<string>("Pong", Pong);
+        Connection.On<string>("Pong", Pong);
     }
 
-    public async Task Start()
+    public async Task StartAsync(CancellationToken cancellationToken)
     {
-        await _connection.StartAsync();
-        _logger.LogInformation("RPC client started");
+        while (true)
+        {
+            try
+            {
+                await Connection.StartAsync(cancellationToken);
+                _logger.LogInformation("RPC client started");
+                break;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Error when starting RPC client");
+                await Task.Delay(10 * 1000);
+            }
+        }
+    }
+
+    public async Task StopAsync()
+    {
+        await Connection.DisposeAsync();
+        _logger.LogInformation("RPC client stopped");
     }
 
     public async Task<string> Ping(string message)
     {
-        return await _connection.InvokeAsync<string>("Ping", message);
+        return await Connection.InvokeAsync<string>("Ping", message);
     }
 
     public async Task Pong(string message)
@@ -42,13 +60,13 @@ public class RpcClient : IRpcClient
         _logger.LogInformation("Pong: {Message}", message);
     }
 
-    public async Task<Node> Register(string key)
+    public async Task<Node> Register(string? key)
     {
-        return await _connection.InvokeAsync<Node>("Register", key);
+        return await Connection.InvokeAsync<Node>("Register", key);
     }
 
     public async Task<Node?> Report(int nodeId)
     {
-        return await _connection.InvokeAsync<Node>("Report", nodeId);
+        return await Connection.InvokeAsync<Node>("Report", nodeId);
     }
 }

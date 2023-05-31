@@ -18,6 +18,7 @@ public class CrawlabDbContext : DbContext
     public DbSet<User> Users { get; set; }
 
     public DbSet<SpiderNode> SpiderNodes { get; set; }
+    public DbSet<ScheduleNode> ScheduleNodes { get; set; }
 
     public CrawlabDbContext(DbContextOptions<CrawlabDbContext> options) : base(options)
     {

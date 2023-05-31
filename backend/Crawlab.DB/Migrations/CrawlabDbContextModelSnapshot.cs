@@ -52,6 +52,12 @@ namespace Crawlab.DB.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<int?>("ScheduleId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("SpiderId")
+                        .HasColumnType("int");
+
                     b.Property<string>("Status")
                         .IsRequired()
                         .HasColumnType("varchar(255)");
@@ -63,6 +69,10 @@ namespace Crawlab.DB.Migrations
 
                     b.HasIndex("Key")
                         .IsUnique();
+
+                    b.HasIndex("ScheduleId");
+
+                    b.HasIndex("SpiderId");
 
                     b.HasIndex("Status");
 
@@ -83,6 +93,10 @@ namespace Crawlab.DB.Migrations
                         .HasColumnType("longtext");
 
                     b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("Mode")
                         .IsRequired()
                         .HasColumnType("longtext");
 
@@ -124,15 +138,10 @@ namespace Crawlab.DB.Migrations
                         .IsRequired()
                         .HasColumnType("longtext");
 
-                    b.Property<int?>("SpiderId")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime(6)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("SpiderId");
 
                     b.ToTable("Spiders");
                 });
@@ -230,7 +239,7 @@ namespace Crawlab.DB.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("Crawlab.Model.Relations.SpiderNode", b =>
+            modelBuilder.Entity("Crawlab.Model.Relations.ScheduleNode", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -239,13 +248,32 @@ namespace Crawlab.DB.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime(6)");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<int?>("NodeId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("longtext");
+                    b.Property<int?>("ScheduleId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime(6)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NodeId");
+
+                    b.HasIndex("ScheduleId");
+
+                    b.ToTable("ScheduleNodes");
+                });
+
+            modelBuilder.Entity("Crawlab.Model.Relations.SpiderNode", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime(6)");
 
                     b.Property<int?>("NodeId")
                         .HasColumnType("int");
@@ -265,6 +293,17 @@ namespace Crawlab.DB.Migrations
                     b.ToTable("SpiderNodes");
                 });
 
+            modelBuilder.Entity("Crawlab.Model.Models.Node", b =>
+                {
+                    b.HasOne("Crawlab.Model.Models.Schedule", null)
+                        .WithMany("Nodes")
+                        .HasForeignKey("ScheduleId");
+
+                    b.HasOne("Crawlab.Model.Models.Spider", null)
+                        .WithMany("Nodes")
+                        .HasForeignKey("SpiderId");
+                });
+
             modelBuilder.Entity("Crawlab.Model.Models.Schedule", b =>
                 {
                     b.HasOne("Crawlab.Model.Models.Spider", "Spider")
@@ -274,13 +313,6 @@ namespace Crawlab.DB.Migrations
                         .IsRequired();
 
                     b.Navigation("Spider");
-                });
-
-            modelBuilder.Entity("Crawlab.Model.Models.Spider", b =>
-                {
-                    b.HasOne("Crawlab.Model.Models.Spider", null)
-                        .WithMany("Spiders")
-                        .HasForeignKey("SpiderId");
                 });
 
             modelBuilder.Entity("Crawlab.Model.Models.Task", b =>
@@ -304,6 +336,21 @@ namespace Crawlab.DB.Migrations
                     b.Navigation("Spider");
                 });
 
+            modelBuilder.Entity("Crawlab.Model.Relations.ScheduleNode", b =>
+                {
+                    b.HasOne("Crawlab.Model.Models.Node", "Node")
+                        .WithMany()
+                        .HasForeignKey("NodeId");
+
+                    b.HasOne("Crawlab.Model.Models.Schedule", "Schedule")
+                        .WithMany("ScheduleNodes")
+                        .HasForeignKey("ScheduleId");
+
+                    b.Navigation("Node");
+
+                    b.Navigation("Schedule");
+                });
+
             modelBuilder.Entity("Crawlab.Model.Relations.SpiderNode", b =>
                 {
                     b.HasOne("Crawlab.Model.Models.Node", "Node")
@@ -319,11 +366,18 @@ namespace Crawlab.DB.Migrations
                     b.Navigation("Spider");
                 });
 
+            modelBuilder.Entity("Crawlab.Model.Models.Schedule", b =>
+                {
+                    b.Navigation("Nodes");
+
+                    b.Navigation("ScheduleNodes");
+                });
+
             modelBuilder.Entity("Crawlab.Model.Models.Spider", b =>
                 {
-                    b.Navigation("SpiderNodes");
+                    b.Navigation("Nodes");
 
-                    b.Navigation("Spiders");
+                    b.Navigation("SpiderNodes");
                 });
 #pragma warning restore 612, 618
         }

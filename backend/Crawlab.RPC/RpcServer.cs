@@ -1,3 +1,4 @@
+using Crawlab.Constant;
 using Crawlab.DB;
 using Crawlab.Model.Models;
 using Microsoft.AspNetCore.SignalR;
@@ -33,7 +34,7 @@ public class RpcServer : Hub<IRpcClient>
     {
         _logger.LogInformation("Ping: {ContextConnectionId}", Context.ConnectionId);
         await Clients.Client(Context.ConnectionId).Pong(message);
-        return "success";
+        return message;
     }
 
     public async Task<Node> Register(string key)
@@ -62,7 +63,11 @@ public class RpcServer : Hub<IRpcClient>
             return null;
         }
 
+        node.Status = NodeStatus.Online;
         node.LastHeartbeat = DateTime.Now;
+        await _dbContext.SaveChangesAsync();
+        _logger.LogInformation("Report: {ContextConnectionId}", Context.ConnectionId);
+
         return node;
     }
 }

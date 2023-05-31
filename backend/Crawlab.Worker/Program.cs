@@ -1,16 +1,24 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using Crawlab.RPC;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 
-using Crawlab.RPC;
+namespace Crawlab.Worker;
 
-var client = new RpcClient();
-await client.Start();
-try
+public class Program
 {
-    await client.Register("test");
-}
-catch
-{
-}
+    public static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
 
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureServices((hostContext, services) =>
+            {
+                // RPC Client
+                services.AddSingleton<RpcClient>();
 
-await Task.Delay(600 * 1000);
+                // Worker
+                services.AddHostedService<Worker>();
+            });
+}

@@ -1,4 +1,6 @@
 using Crawlab.DB;
+using Microsoft.Extensions.Logging;
+using Moq;
 
 namespace Crawlab.RPC.Test;
 
@@ -11,8 +13,10 @@ public class RpcTests
     [SetUp]
     public async Task Setup()
     {
-        _client = new RpcClient();
-        await _client.Start();
+        var loggerMock = new Mock<ILogger<RpcClient>>();
+        var cancellationTokenSource = new CancellationTokenSource();
+        _client = new RpcClient(loggerMock.Object);
+        await _client.StartAsync(cancellationTokenSource.Token);
 
         var factory = new CrawlabDbContextFactory();
         _dbContext = factory.CreateDbContext(Array.Empty<string>());

@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawlab.RPC.Test", "Crawlab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawlab.Worker", "Crawlab.Worker\Crawlab.Worker.csproj", "{AF912ADC-DA1F-49AA-95D3-986ACC0F517A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crawlab.Service", "Crawlab.Service\Crawlab.Service.csproj", "{4B17BCE4-FC65-4611-9553-4E91158D176F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -60,5 +62,9 @@ Global
 		{AF912ADC-DA1F-49AA-95D3-986ACC0F517A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AF912ADC-DA1F-49AA-95D3-986ACC0F517A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AF912ADC-DA1F-49AA-95D3-986ACC0F517A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B17BCE4-FC65-4611-9553-4E91158D176F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B17BCE4-FC65-4611-9553-4E91158D176F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B17BCE4-FC65-4611-9553-4E91158D176F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B17BCE4-FC65-4611-9553-4E91158D176F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

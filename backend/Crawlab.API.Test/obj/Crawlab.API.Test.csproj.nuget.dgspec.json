@@ -122,6 +122,9 @@
               },
               "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.RPC/Crawlab.RPC.csproj": {
                 "projectPath": "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.RPC/Crawlab.RPC.csproj"
+              },
+              "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.Service/Crawlab.Service.csproj": {
+                "projectPath": "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.Service/Crawlab.Service.csproj"
               }
             }
           }
@@ -437,6 +440,63 @@
               "version": "[7.0.5, )"
             }
           },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.302/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.Service/Crawlab.Service.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.Service/Crawlab.Service.csproj",
+        "projectName": "Crawlab.Service",
+        "projectPath": "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.Service/Crawlab.Service.csproj",
+        "packagesPath": "/Users/marvzhang/.nuget/packages/",
+        "outputPath": "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.Service/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/Users/marvzhang/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.DB/Crawlab.DB.csproj": {
+                "projectPath": "/Users/marvzhang/projects/crawlab-team/crawlab-next/backend/Crawlab.DB/Crawlab.DB.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
           "imports": [
             "net461",
             "net462",
