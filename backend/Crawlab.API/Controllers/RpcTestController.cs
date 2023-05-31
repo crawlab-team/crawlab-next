@@ -10,16 +10,19 @@ namespace Crawlab.API.Controllers;
 [Route("rpc-test")]
 public class RpcTestController
 {
+    private readonly ILogger<RpcTestController> _logger;
     private readonly IHubContext<RpcServer, IRpcClient> _rpcServer;
 
-    public RpcTestController(IHubContext<RpcServer, IRpcClient> rpcServer)
+    public RpcTestController(ILogger<RpcTestController> logger, IHubContext<RpcServer, IRpcClient> rpcServer)
     {
+        _logger = logger;
         _rpcServer = rpcServer;
     }
 
     [HttpGet]
     public async Task<string> Get(string key)
     {
+        _logger.LogInformation("Ping: {Key}", key);
         await _rpcServer.Clients.Group(key).Pong("Pong");
         return "success";
     }
